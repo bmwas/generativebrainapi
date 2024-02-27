@@ -1,1 +1,2 @@
 # generativebrainapi
+Code exposes a REST API that runs the Latent Diffusion Model to generate 3D brain scans. Scans are exported to a S3 bucket of choice - except need to generate a .env file with the S3 credentials. 

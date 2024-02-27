@@ -9,17 +9,15 @@ import base64
 from io import BytesIO
 from fastapi.responses import FileResponse
 import io
+from dotenv import load_dotenv
+
+load_dotenv()
 
 logger = logging.getLogger("uvicorn")
 
-API_KEYS = [
-    "9d207bf0-10f5-4d8f-a479-22ff5aeff8d1",
-    "f47d4a2c-24cf-4745-937e-620a5963c0b8",
-    "b7061546-75e8-444b-a2c4-f19655d07eb8",
-]
+API_KEYS = os.getenv("API_KEYS")
 
 app = FastAPI()
-
 model_name = "Image Generation Microservice/API"
 version = "v1.0.0"
 
