@@ -79,8 +79,10 @@ async def input_index_main_text_document(
     """Index whole documents...."""
     config_file = "./model-zoo/models/brain_image_synthesis_latent_diffusion_model/configs/generategenderageventbrainvol_inference.json"
     output_folder = "/app/MONAI/GenerativeModels/model-zoo/models/brain_image_synthesis_latent_diffusion_model/output/"
-    genageventbrainvol_progress = generativeexecutecommand(data.bucket_name,data.bucket_folder,output_folder,config_file,data.gender,data.age,
+
+    genageventbrainvol_progress = generativeexecutecommand(data.bucket_name,data.bucket_folder,output_folder,config_file,
         data.gender,data.age,data.ventricular_vol,data.brain_vol,data.mriid)
+    
     output = GenAgeVenBrVolProgress(genageventbrainvol_progress=genageventbrainvol_progress)  # Convert result to str
     return output
 

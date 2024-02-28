@@ -80,6 +80,7 @@ def execute_command(config_file,gender, age, ventricular_vol, brain_vol,mriid):
         commandresult = {"stdout":type(e).__name__}
     return commandresult
 
+
 def generativeexecutecommand(bucket_name,bucket_folder,output_folder,config_file,gender,age,ventricular_vol,brain_vol,mriid):
     print("Attempting a brain generation pipeline ....")
     try:
@@ -87,6 +88,6 @@ def generativeexecutecommand(bucket_name,bucket_folder,output_folder,config_file
         upload_nifti_file_to_s3(output_folder, bucket_name,bucket_folder)
         genoutput = {"results": result}
     except Exception as e:
-        print("Error:", type(e).__name__)
+        print("Error while executing generative model or attemptin s3 upload:", type(e).__name__)
         genoutput = {"results": type(e).__name__}
     return genoutput
