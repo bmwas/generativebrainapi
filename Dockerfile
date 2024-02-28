@@ -1,4 +1,4 @@
-# Use a specific version/tag of the huggingface/transformers-pytorch-gpu image
+# Use the main version/tag of the miniconda3
 FROM continuumio/miniconda3:main
 
 USER root
@@ -64,6 +64,7 @@ RUN chmod +x /app/MONAI/MonaiGenerativeModels/functions/*
 COPY ./.env /app/MONAI/MonaiGenerativeModels/.env
 WORKDIR /app/MONAI/MonaiGenerativeModels
 
+#expose port 8000
 EXPOSE 8000
 
 COPY ./entrypoint.sh /app/entrypoint.sh
