@@ -9,12 +9,14 @@ import base64
 from io import BytesIO
 from fastapi.responses import FileResponse
 import io
+import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
 logger = logging.getLogger("uvicorn")
 
+#Load API keys
 API_KEYS = os.getenv("API_KEYS")
 
 app = FastAPI()
