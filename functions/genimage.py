@@ -61,7 +61,7 @@ def read_gzip_file(file_path):
     with open(file_path, 'rb') as f:
         return f.read()
 
-def execute_command(config_file, mriid,gender, age, ventricular_vol, brain_vol):
+def execute_command(config_file,gender, age, ventricular_vol, brain_vol,mriid):
     command = [
         "python", "-m", "monai.bundle", "run", "save_nii",
         "--config_file", config_file,
@@ -80,10 +80,10 @@ def execute_command(config_file, mriid,gender, age, ventricular_vol, brain_vol):
         commandresult = {"stdout":type(e).__name__}
     return commandresult
 
-def generativeexecutecommand(bucket_name,bucket_folder,output_folder,config_file,gender,age,ventricular_vol,brain_vol):
+def generativeexecutecommand(bucket_name,bucket_folder,output_folder,config_file,gender,age,ventricular_vol,brain_vol,mriid):
     print("Attempting a brain generation pipeline ....")
     try:
-        result = execute_command(config_file,mriid,gender, age, ventricular_vol, brain_vol) 
+        result = execute_command(config_file,gender, age, ventricular_vol, brain_vol,mriid) 
         upload_nifti_file_to_s3(output_folder, bucket_name,bucket_folder)
         genoutput = {"results": result}
     except Exception as e:
