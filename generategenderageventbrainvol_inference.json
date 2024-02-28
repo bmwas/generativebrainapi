@@ -15,7 +15,7 @@
     "mriid": "0124",
     "device": "$torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')",
     "conditioning": "$torch.tensor([[@gender, @age, @ventricular_vol, @brain_vol]]).to(@device).unsqueeze(1)",
-    "out_file": "'mriid_' + str(mriid) + '_' + $datetime.now().strftime('sample_%H%M%S_%d%m%Y') + '_' + 'gender_' + str(@gender) + '_' + 'age_' + str(@age) + '_' + 'ventricular_vol_' + str(@ventricular_vol) + '_' + 'brain_vol_' + str(@brain_vol)",
+    "out_file": "$datetime.now().strftime('sample_%H%M%S_%d%m%Y') + '_mriid_' + str(@mriid) + '_' + 'gender_' + str(@gender) + '_' + 'age_' + str(@age) + '_' + 'ventricular_vol_' + str(@ventricular_vol) + '_' + 'brain_vol_' + str(@brain_vol)",
     "autoencoder_def": {
         "_target_": "generative.networks.nets.AutoencoderKL",
         "spatial_dims": 3,
