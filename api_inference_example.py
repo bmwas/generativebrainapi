@@ -56,7 +56,7 @@ def process_csv(filename,api_url,bearer_token):
             print("\n")
 
 # Example usage:
-bearer_token = "xxxxxxx" # API bearer token
+bearer_token = "xxxxxxx" # API bearer token or keys - This token is expected to have been pre-populated in the .env file
 api_url = "https://localhost.com/generategenderageventbrainvol"
 root_dir = "/home/xxxxxxx/"
 csv_filename = "sample_inference_file.csv"  # Provide the path to your CSV file
