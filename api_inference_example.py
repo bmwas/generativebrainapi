@@ -49,6 +49,6 @@ def process_csv(filename,api_url):
 
 # Example usage:
 api_url = "YOUR_API_URL_HERE"
-root_dir = "/home/Benson/Dropbox/Antillegence/MVP_Development/Seed_Database_and_Crawling/welnity_apis/langchain/monai/inference/generativebrainapi/"
+root_dir = "/home/xxxx"
 csv_filename = "sample_inference_file.csv"  # Provide the path to your CSV file
 process_csv(root_dir+csv_filename)
