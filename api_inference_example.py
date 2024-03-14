@@ -8,6 +8,8 @@ The script anticipates input in the form of a CSV file containing
 the aforementioned data points. For reference, an exemplar CSV file
 named "example_brain.csv" is included for guidance.
 
+NB: Make sure the endpoint url is complete e.g. /generategenderageventbrainvol
+
 Benson Mwangi @2024
 """
 
