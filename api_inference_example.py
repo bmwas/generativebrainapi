@@ -14,8 +14,13 @@ Benson Mwangi @2024
 import csv
 import requests
 
-# Function to make API request
-def make_api_request(api_url,mriid, gender, age, ventricular_vol, brain_vol, bucket_name, bucket_folder):
+
+def make_api_request(api_url, mriid, gender, age, ventricular_vol, brain_vol, bucket_name, bucket_folder, bearer_token):
+    headers = {
+        "accept": "application/json",
+        "Authorization": "Bearer " + bearer_token,
+        "Content-Type": "application/json"
+    }
     payload = {
         "mriid": mriid,
         "gender": gender,
@@ -25,11 +30,12 @@ def make_api_request(api_url,mriid, gender, age, ventricular_vol, brain_vol, buc
         "bucket_name": bucket_name,
         "bucket_folder": bucket_folder
     }
-    response = requests.post(api_url, json=payload)
+    response = requests.post(api_url, headers=headers, json=payload)
     return response.json()
 
+
 # Function to iterate over CSV and make API requests
-def process_csv(filename,api_url):
+def process_csv(filename,api_url,bearer_token):
     with open(filename, 'r') as csvfile:
         csvreader = csv.DictReader(csvfile)
         for row in csvreader:
@@ -42,13 +48,14 @@ def process_csv(filename,api_url):
             bucket_folder = row['bucket_folder']
             
             # Make API request
-            api_response = make_api_request(api_url,mriid, gender, age, ventricular_vol, brain_vol, bucket_name, bucket_folder)
-            
+            api_response = make_api_request(api_url,mriid, gender, age, ventricular_vol, brain_vol, bucket_name, bucket_folder,bearer_token)           
             # Process API response
             print(api_response)  # You can customize this part to handle the API response as needed
+            print("\n")
 
 # Example usage:
-api_url = "YOUR_API_URL_HERE"
-root_dir = "/home/xxxx"
+bearer_token = "xxxxxxx" # API bearer token
+api_url = "https://localhost.com/generategenderageventbrainvol"
+root_dir = "/home/xxxxxxx/"
 csv_filename = "sample_inference_file.csv"  # Provide the path to your CSV file
-process_csv(root_dir+csv_filename)
+process_csv(root_dir+csv_filename,api_url,bearer_token)
