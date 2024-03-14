@@ -4,12 +4,16 @@ This code exposes an inference REST API endpoint that runs the Latent Diffusion 
 
 ## Building the Docker Image
 To build the image, navigate to the root folder and execute the build command
-docker build -t generativebrainapi .
+### docker build -t generativebrainapi .
 
 ## Run the docker image (assumes rest endpoint is exposed at port 8000)
 To "run" or execute the image (following a successful build above) - execute the following
-docker run -p 8000:8000 generativebrainapi:latest 
+### docker run -p 8000:8000 generativebrainapi:latest 
 
 ## Endpoint access
-More to come .....
+You can access the endpoint documentation by visiting the server url (e.g. assuming it's localhost) http(s)://localhost:8000/docs
+
+##  Programatically access the API
+
+To programatically call or access the endpoint - see api_inference_example.py attached
 
