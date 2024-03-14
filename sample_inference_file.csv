@@ -1,0 +1,10 @@
+mriid,gender,age,ventricular_vol,brain_vol,bucket_name,bucket_folder
+1,1,0.7,0.7,0.5,testniis,ldm
+2,0,0.2,0.2,0.2,testniis,ldm
+3,0,0.2,0.2,0.2,testniis,ldm
+4,0,0.2,0.2,0.2,testniis,ldm
+5,0,0.2,0.2,0.2,testniis,ldm
+6,0,0.2,0.2,0.2,testniis,ldm
+7,0,0.2,0.2,0.2,testniis,ldm
+8,0,0.2,0.2,0.2,testniis,ldm
+9,0,0.2,0.2,0.2,testniis,ldm
